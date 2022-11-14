@@ -11,6 +11,7 @@ import rootRoutes from './routes/root.js';
 import notFoundRoutes from './routes/notFound.js';
 import userRoutes from './routes/user.js';
 import noteRoutes from './routes/note.js';
+import authRoutes from './routes/auth.js';
 
 import {logger}  from './middleware/logger.js';
 import errorHandler  from './middleware/errorHandler.js';
@@ -37,6 +38,7 @@ app.use(cookieParser());
 app.use('/', express.static(path.join(__dirname, 'public')));
 app.use('/', rootRoutes);
 
+app.use('/auth', authRoutes);
 app.use('/users', userRoutes);
 app.use('/notes', noteRoutes);
 
